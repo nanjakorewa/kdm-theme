@@ -76,11 +76,6 @@ a:hover {
   color: #0082a7;
 }
 
-pre {
-  position: relative;
-  color: #ffffff;
-}
-
 .bg {
   background: #fff;
   border: 1px solid #eaeaea;
@@ -442,7 +437,7 @@ select[multiple=multiple]:focus {
 }
 
 #sidebar ul li.visited>a .read-icon {
-  color: #9c6fb6;
+  color: #444;
   display: inline;
 }
 
@@ -525,8 +520,8 @@ select[multiple=multiple]:focus {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 4rem;
-  font-size: 50px;
+  width: 3rem;
+  font-size: 30px;
   height: 100%;
   cursor: pointer;
   display: table;
@@ -587,7 +582,7 @@ select[multiple=multiple]:focus {
 }
 
 #chapter h3 {
-  font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "M PLUS 1p", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   font-weight: 300;
   text-align: center;
 }
@@ -613,7 +608,7 @@ select[multiple=multiple]:focus {
 }
 
 body {
-  font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "M PLUS 1p", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   font-weight: 300;
   line-height: 1.6;
   font-size: 18px !important;
@@ -624,7 +619,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "M PLUS 1p", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   text-rendering: optimizeLegibility;
   color: #5e5e5e;
   font-weight: 400;
@@ -632,7 +627,7 @@ h6 {
 }
 
 h1 {
-  font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "M PLUS 1p", "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   text-align: center;
   text-transform: uppercase;
   color: #222;
@@ -673,7 +668,7 @@ div.notices p:first-child:before {
   position: absolute;
   top: 2px;
   color: #fff;
-  font-family: "Font Awesome 5 Free";
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f06a";
   left: 10px;
@@ -726,7 +721,7 @@ div.notices p:first-child:before {
   position: absolute;
   top: 2px;
   color: #fff;
-  font-family: "Font Awesome 5 Free";
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f02d";
   left: 10px;
@@ -736,7 +731,7 @@ div.notices.document ul:first-child:before {
   position: absolute;
   top: 2px;
   color: #fff;
-  font-family: "Font Awesome 5 Free";
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
   font-weight: 600;
   content: "\f02d  Document / ドキュメント";
   left: 10px;
@@ -749,7 +744,7 @@ div.notices.document p {
 
 div.notices.document p:first-child:after {
   font-weight: 600;
-  font-family: "Font Awesome 5 Free";
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
   content: 'Document / ドキュメント';
 }
 
@@ -870,7 +865,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: "Consolas", menlo, monospace;
+  font-family: "M PLUS 1p", "Consolas", menlo, monospace;
   font-size: 92%;
 }
 
@@ -892,24 +887,6 @@ code+.copy-to-clipboard {
   top: 0;
 }
 
-pre {
-  padding: 1rem;
-  margin: 2rem 0;
-  background: #282c34;
-  border: 0;
-  border-radius: 2px;
-  line-height: 1.15;
-}
-
-pre code {
-  color: whitesmoke;
-  background: inherit;
-  white-space: inherit;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  font-size: 15px;
-}
 
 hr {
   border-bottom: 4px solid #F0F2F4;
@@ -1471,12 +1448,17 @@ pre .copy-to-clipboard:hover {
 }
 
 #sidebar ul li.visited>a .read-icon {
-  color: #00bdf3;
+  color: #ddd;
+  display: inline;
+}
+
+#sidebar ul li.visited.active>a .read-icon {
+  color: #444;
   display: inline;
 }
 
 #sidebar #shortcuts h3 {
-  font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "M PLUS 1p", "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   color: white;
   margin-top: 1rem;
   padding-left: 1rem;
@@ -1516,4 +1498,42 @@ table.dataframe td {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+pre {
+  color: #ffffff;
+  background-color: #fff !important;
+  margin: 0 1em 0 0 !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+pre code {
+  color: whitesmoke;
+  background: inherit;
+  white-space: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+}
+
+code.language-python {
+  background-color: #282c34;
+  margin: 0 0 0 0 !important;
+  padding: 1.2em;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 8px;
+}
+
+code.yaml {
+  background-color: #484b52;
+  margin: 0 0em 1em 1.0em !important;
+  padding: 1.2em;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
