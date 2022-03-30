@@ -1520,11 +1520,11 @@ pre code {
 
 code.language-python {
   background-color: #282c34;
-  margin: 0 0 0 0 !important;
+  margin: 0 0 0.2em 0 !important;
   padding: 1.2em;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  border-bottom-right-radius: 0px;
+  border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
 
@@ -1532,8 +1532,8 @@ code.yaml {
   background-color: #484b52;
   margin: 0 0em 1em 1.0em !important;
   padding: 1.2em;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
