@@ -3,6 +3,7 @@ title: Démarrage
 weight: 5
 pre: "<b>1. </b>"
 chapter: true
+not_use_colab: true
 ---
 
 ### Chapitre 1

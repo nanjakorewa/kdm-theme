@@ -1585,3 +1585,9 @@ a.twitter-btn-border:hover {
   color: #fff !important;
   background: #1DA1F2;
 }
+
+a.in-text-button {
+  transform: scale(0.8);
+  margin-left: 0;
+  margin-right: 0;
+}

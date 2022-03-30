@@ -3,6 +3,7 @@ title: Basics
 weight: 5
 pre: "<b>1. </b>"
 chapter: true
+not_use_colab: true
 ---
 
 ### Chapter 1
