@@ -78,10 +78,16 @@
                   </span>
                 </div>
                 <div id="social-buttons">
-                  <a class="btn twitter-btn-border" href="https://twitter.com/intent/tweet?url=https://k-dm.work/{{ .File.Lang }}/{{ .File.Dir }}{{ .File.ContentBaseName }}/&amp;text={{ .Title }}&amp;via=_K_DM" target="_blank_" rel="nofollow">
+                  {{ if not .Params.not_use_twitter }}
+                  <a class="btn twitter-btn-border" href="https://twitter.com/intent/tweet?url=https://k-dm.work/{{ .File.Lang }}/{{ lower .File.Dir }}{{ lower .File.ContentBaseName }}/&amp;text={{ .Title }}&amp;via=_K_DM" target="_blank_" rel="nofollow">
                     <i class="fab fa-twitter"></i> twitter
                   </a>
-                  {{ if not .Params.not_use_colab }}<a href="https://colab.research.google.com/github/nanjakorewa/kdm-notebooks/blob/main/{{ .File.Dir }}/{{ .File.TranslationBaseName }}.ipynb" class="btn colab-btn-border" target="_blank" rel="noopener">Colab</a>{{ end }}
+                  {{ end }}
+                  {{ if not .Params.not_use_colab }}
+                  <a href="https://colab.research.google.com/github/nanjakorewa/kdm-notebooks/blob/main/{{ .File.Dir }}/{{ .File.TranslationBaseName }}.ipynb" class="btn colab-btn-border" target="_blank" rel="noopener">
+                    Colab
+                  </a>
+                  {{ end }}
                 </div>
                 {{ if $toc }}
                     {{ partial "toc.html" . }}
