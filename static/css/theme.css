@@ -1537,3 +1537,7 @@ code.yaml {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
+
+#shortcuts {
+  margin-top: 2em;
+}
