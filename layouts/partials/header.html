@@ -58,20 +58,6 @@
               {{if not .IsHome}}
               <div>
                 <div id="top-bar">
-                {{ if and (or .IsPage .IsSection) .Site.Params.editURL }}
-                  {{ $File := .File }}
-                  {{ $Site := .Site }}
-                  {{with $File.Path }}
-                  <!--
-                  <div id="top-github-link">
-                    <a class="github-link" title='{{T "Edit-this-page"}}' href="{{ $Site.Params.editURL }}{{ replace $File.Dir "\\" "/" }}{{ $File.LogicalName }}" target="blank">
-                      <i class="fas fa-code-branch"></i>
-                      <span id="top-github-link-text">{{T "Edit-this-page"}}</span>
-                    </a>
-                  </div>
-                  -->
-                  {{ end }}
-                {{ end }}
                 {{$toc := (and (not .Params.disableToc) (not .Params.chapter))}}
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -90,6 +76,10 @@
                    {{ .Title }}
                  {{ end }}
                   </span>
+                </div>
+                <div id="social-buttons">
+                  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="btn twitter-btn-border" data-show-count="false" data-via="_K_DM"><i class="fab fa-twitter"></i> twitter</a>
+                  {{ if not .Params.use_colab }}<a href="https://colab.research.google.com/github/nanjakorewa/K_DM_book/blob/main/notebook/{{ .File.Dir }}/{{ .File.TranslationBaseName }}.ipynb" class="btn colab-btn-border">Colab</a>{{ end }}
                 </div>
                 {{ if $toc }}
                     {{ partial "toc.html" . }}

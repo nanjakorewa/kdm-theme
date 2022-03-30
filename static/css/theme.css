@@ -1308,6 +1308,9 @@ td {
   padding: 0 1rem;
   height: 0;
   min-height: 3rem;
+  display: flex;
+  vertical-align: middle;
+  overflow-x: hidden;
 }
 
 #top-github-link {
@@ -1321,7 +1324,7 @@ td {
   height: auto;
   margin-bottom: 0;
   padding-left: 0;
-  line-height: 1.4;
+  line-height: 3;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -1540,4 +1543,45 @@ code.yaml {
 
 #shortcuts {
   margin-top: 2em;
+}
+
+div#social-buttons {
+  max-width: 200px;
+  margin-left: auto;
+}
+
+a.colab-btn-border {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em !important;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: rgb(199, 199, 199);
+  color: #fff;
+}
+
+a.colab-btn-border:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f121";
+  font-weight: 900;
+  margin-right: 0.5em;
+}
+
+a.colab-btn-border:hover {
+  color: #fff !important;
+  background: #FFA500;
+}
+
+
+a.twitter-btn-border {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em !important;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: rgb(199, 199, 199);
+  color: #fff;
+}
+
+a.twitter-btn-border:hover {
+  color: #fff !important;
+  background: #1DA1F2;
 }
