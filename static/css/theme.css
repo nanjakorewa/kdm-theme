@@ -662,6 +662,7 @@ div.notices p {
   margin-top: 0rem;
   margin-bottom: 0rem;
   color: #666;
+  border-radius: 5px;
 }
 
 div.notices p:first-child:before {
@@ -880,6 +881,8 @@ code {
 
 code+.copy-to-clipboard {
   margin-left: -1px;
+  margin-top: 5px;
+  margin-right: 3px;
   border-left: 0 !important;
   font-size: inherit !important;
   vertical-align: middle;
@@ -1523,7 +1526,7 @@ pre code {
 
 code.language-python {
   background-color: #282c34;
-  margin: 0 0 0.2em 0 !important;
+  margin: 0.2em 0 0.2em 0 !important;
   padding: 1.2em;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -1531,7 +1534,13 @@ code.language-python {
   border-bottom-left-radius: 8px;
 }
 
-code.yaml {
+code.yaml,
+code.less,
+code.css,
+code.apache,
+code.go,
+code.coffeescript,
+code.cpp {
   background-color: #484b52;
   margin: 0 0em 1em 1.0em !important;
   padding: 1.2em;
@@ -1555,7 +1564,7 @@ a.colab-btn-border {
   margin-bottom: 0.5em !important;
   border: 2px solid #000;
   border-radius: 0;
-  background: rgb(199, 199, 199);
+  background: #ffd27e;
   color: #fff;
 }
 
@@ -1577,7 +1586,7 @@ a.twitter-btn-border {
   margin-bottom: 0.5em !important;
   border: 2px solid #000;
   border-radius: 0;
-  background: rgb(199, 199, 199);
+  background: #8fc6e9;
   color: #fff;
 }
 
