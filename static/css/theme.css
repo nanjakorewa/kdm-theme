@@ -1559,6 +1559,15 @@ div#social-buttons {
   margin-left: auto;
 }
 
+div#page-title-logomark-area {
+  margin-bottom: 2em;
+}
+
+div#page-title-logomark {
+  font-size: 2.5em;
+  margin: 0.3em;
+}
+
 a.colab-btn-border {
   margin-top: 0.5em;
   margin-bottom: 0.5em !important;
