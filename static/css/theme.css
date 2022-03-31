@@ -718,6 +718,25 @@ div.notices.tip p:first-child:after {
   content: 'Tip';
 }
 
+div.notices.ref p:first-child:before {
+  position: absolute;
+  top: 2px;
+  color: #fff;
+  font-family: "M PLUS 1p", "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f19d";
+  left: 10px;
+}
+
+div.notices.ref p {
+  border-top: 30px solid rgba(92, 166, 184, 0.8);
+  background: #e6f9f4;
+}
+
+div.notices.ref p:first-child:after {
+  content: 'Reference / 参考文献';
+}
+
 div.notices p:first-child:before {
   position: absolute;
   top: 2px;
@@ -1540,6 +1559,8 @@ code.css,
 code.apache,
 code.go,
 code.coffeescript,
+code.xml,
+code.json,
 code.cpp {
   background-color: #484b52;
   margin: 0 0em 1em 1.0em !important;
