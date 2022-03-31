@@ -1611,9 +1611,10 @@ a.in-text-button {
 }
 
 html {
-  transition-duration: .4s;
+  transition-duration: .5s;
 }
 
 html[theme='darkmode'] {
-  filter: invert(0.89) hue-rotate(150deg);
+  filter: invert(0.92) hue-rotate(150deg);
+  transition-duration: .5s;
 }

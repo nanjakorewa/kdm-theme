@@ -68,8 +68,8 @@
     <script src="{{"js/hugo-learn.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
     <script>
       function ChangeTheme(){
-        var htmlTag = document.getElementsByTagName('html')[0]
-        if(htmlTag.hasAttribute('theme')) {
+        let htmlTag = document.getElementsByTagName('html')[0];
+        if(htmlTag.hasAttribute('theme')){
           htmlTag.removeAttribute('theme');
         }
         else {

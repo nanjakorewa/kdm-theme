@@ -33,3 +33,6 @@ other = "KB"
 
 [Megabyte-symbol]
 other = "MB"
+
+[Dark-Mode]
+other = "Darkmode"
