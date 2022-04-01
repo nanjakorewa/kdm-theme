@@ -1639,3 +1639,15 @@ html[theme='darkmode'] {
   filter: invert(0.92) hue-rotate(150deg);
   transition-duration: .5s;
 }
+
+.quotearea .quotetext {
+  font-style: italic;
+}
+
+.quotearea i {
+  opacity: 0.5;
+}
+
+.quotearea .quotefrom {
+  text-align: right;
+}
