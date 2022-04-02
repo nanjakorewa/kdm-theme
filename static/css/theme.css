@@ -787,6 +787,7 @@ div.youtube-embed {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1em;
 }
 
 /* attachments shortcode */
@@ -1650,4 +1651,15 @@ html[theme='darkmode'] {
 
 .quotearea .quotefrom {
   text-align: right;
+}
+
+.pagetop-box {
+  padding: 1em 1.3em;
+  margin: 2em 0;
+  border: solid 2px #999;
+}
+
+.pagetop-box p {
+  margin: 0;
+  padding: 0;
 }
