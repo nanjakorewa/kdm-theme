@@ -1659,6 +1659,10 @@ html[theme='darkmode'] {
   border: solid 2px #999;
 }
 
+.pagetop-box p::before {
+  content: "　";
+}
+
 .pagetop-box p {
   margin: 0;
   padding: 0;
