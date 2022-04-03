@@ -28,7 +28,7 @@ defaultContentLanguageInSubdir= true
 
 [Languages]
 [Languages.en]
-title = "Documentation for Hugo Learn Theme"
+title = "機械学習やデータ分析に関する動画・コードをまとめています。"
 weight = 1
 languageName = "English"
 

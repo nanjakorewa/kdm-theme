@@ -1590,6 +1590,12 @@ div#social-buttons {
   margin-left: auto;
 }
 
+div#social-buttons  a {
+  margin-top: 0.6em;
+  font-size: 0.8em !important;
+  max-width: 90px;
+}
+
 div#page-title-logomark-area {
   margin-bottom: 2em;
 }
@@ -1600,11 +1606,10 @@ div#page-title-logomark {
 }
 
 a.colab-btn-border {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em !important;
+  margin-top: 0.5em 0 0 0.5em !important;
   border: 2px solid #000;
   border-radius: 0;
-  background: #ffd27e;
+  background: #fec966;
   color: #fff;
 }
 
@@ -1612,7 +1617,6 @@ a.colab-btn-border:before {
   font-family: "Font Awesome 5 Free";
   content: "\f121";
   font-weight: 900;
-  margin-right: 0.5em;
 }
 
 a.colab-btn-border:hover {
@@ -1622,11 +1626,10 @@ a.colab-btn-border:hover {
 
 
 a.twitter-btn-border {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em !important;
+  margin-top: 0.5em 0 0 0.5em !important;
   border: 2px solid #000;
   border-radius: 0;
-  background: #8fc6e9;
+  background: #7bbee8;
   color: #fff;
 }
 

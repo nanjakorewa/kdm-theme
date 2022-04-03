@@ -10,7 +10,7 @@ defaultContentLanguageInSubdir= true
 
 [params]
   editURL = "https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/"
-  description = "Documentation for Hugo Learn Theme"
+  description = "機械学習やデータ分析に関する動画・コードをまとめています。"
   author = "Mathieu Cornic"
   showVisitedLinks = true
   disableBreadcrumb = false
@@ -25,7 +25,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [Languages.en]
-title = "Documentation for Hugo Learn Theme"
+title = "機械学習やデータ分析に関する動画・コードをまとめています。"
 weight = 1
 languageName = "English"
 landingPageURL = "/en"
