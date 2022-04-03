@@ -932,6 +932,14 @@ hr {
   color: #9c6fb6;
 }
 
+#body-inner h1[id],
+#body-inner h2[id],
+#body-inner h3[id] {
+  display: block;
+  padding-top: 70px;
+  margin-top: -40px;
+}
+
 #body-inner .tabs-wrapper.ui-theme-badges {
   background: #1d1f21;
 }
@@ -1667,4 +1675,11 @@ html[theme='darkmode'] {
 .pagetop-box p {
   margin: 0;
   padding: 0;
+}
+
+/* 総務省の出典リンク */
+span.somu-kink {
+  font-size: 0.6em;
+  letter-spacing: -0.2px;
+  color: #555;
 }
