@@ -7,6 +7,7 @@
     {{ hugo.Generator }}
     {{ partial "meta.html" . }}
     {{ partial "favicon.html" . }}
+    {{ $positionCount := 1 }}
 
     {{ if .Params.seachtitle }}
     <title>{{ .Params.seachtitle }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
@@ -15,6 +16,7 @@
     {{ end }}
 
     {{ $assetBusting := not .Site.Params.disableAssetsBusting }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"></script>
     <link href="{{"css/nucleus.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     <link href="{{"css/fontawesome-all.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     <link href="{{"css/hybrid.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
@@ -119,12 +121,10 @@
 
         {{define "breadcrumb"}}
           {{$parent := .page.Parent }}
-          <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           {{ if $parent }}
-            {{ $value := (printf "<a href='%s' itemprop='item'><span itemprop='name'>%s</span></a> > %s" $parent.RelPermalink $parent.Title .value) }}
+            {{ $value := (printf ("<span itemprop='itemListElement'><a href='%s' itemprop='item'><span itemprop='name'>%s</span></a></span> > %s") $parent.RelPermalink $parent.Title .value) }}
             {{ template "breadcrumb" dict "page" $parent "value" $value }}
           {{else}}
             {{.value|safeHTML}}
           {{end}}
-          </span>
         {{end}}
