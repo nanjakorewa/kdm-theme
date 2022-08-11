@@ -940,6 +940,22 @@ hr {
   margin-top: -40px;
 }
 
+#body-inner h1{
+  font-size: 2.4em;
+}
+
+#body-inner h2[id]{
+  font-size: 2em;
+}
+
+#body-inner h3[id]{
+  font-size: 1.5em;
+}
+
+#body-inner h4[id]{
+  font-size: 1.2em;
+}
+
 #body-inner .tabs-wrapper.ui-theme-badges {
   background: #1d1f21;
 }
