@@ -582,7 +582,7 @@ select[multiple=multiple]:focus {
 }
 
 #chapter h3 {
-  font-family: "M PLUS 1p", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "Noto Sans JP", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   font-weight: 300;
   text-align: center;
 }
@@ -608,7 +608,7 @@ select[multiple=multiple]:focus {
 }
 
 body {
-  font-family: "M PLUS 1p", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "Noto Sans JP", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   font-weight: 300;
   line-height: 1.6;
   font-size: 18px !important;
@@ -619,7 +619,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "M PLUS 1p", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "Noto Sans JP", "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   text-rendering: optimizeLegibility;
   color: #5e5e5e;
   font-weight: 400;
@@ -627,7 +627,7 @@ h6 {
 }
 
 h1 {
-  font-family: "M PLUS 1p", "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "Noto Sans JP", "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   text-align: center;
   text-transform: uppercase;
   color: #222;
@@ -669,7 +669,7 @@ div.notices p:first-child:before {
   position: absolute;
   top: 2px;
   color: #fff;
-  font-family: "M PLUS 1p", "Font Awesome 5 Free";
+  font-family: "Noto Sans JP", "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f06a";
   left: 10px;
@@ -722,7 +722,7 @@ div.notices.ref p:first-child:before {
   position: absolute;
   top: 2px;
   color: #fff;
-  font-family: "M PLUS 1p", "Font Awesome 5 Free";
+  font-family: "Noto Sans JP", "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f19d";
   left: 10px;
@@ -741,7 +741,7 @@ div.notices p:first-child:before {
   position: absolute;
   top: 2px;
   color: #fff;
-  font-family: "M PLUS 1p", "Font Awesome 5 Free";
+  font-family: "Noto Sans JP", "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f02d";
   left: 10px;
@@ -751,7 +751,7 @@ div.notices.document ul:first-child:before {
   position: absolute;
   top: 2px;
   color: #fff;
-  font-family: "M PLUS 1p", "Font Awesome 5 Free";
+  font-family: "Noto Sans JP", "Font Awesome 5 Free";
   font-weight: 600;
   content: "\f02d  Document / ドキュメント";
   left: 10px;
@@ -764,7 +764,7 @@ div.notices.document p {
 
 div.notices.document p:first-child:after {
   font-weight: 600;
-  font-family: "M PLUS 1p", "Font Awesome 5 Free";
+  font-family: "Noto Sans JP", "Font Awesome 5 Free";
   content: 'Document / ドキュメント';
 }
 
@@ -886,7 +886,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: "M PLUS 1p", "Consolas", menlo, monospace;
+  font-family: "Noto Sans JP", "Consolas", menlo, monospace;
   font-size: 92%;
 }
 
@@ -1508,7 +1508,7 @@ pre .copy-to-clipboard:hover {
 }
 
 #sidebar #shortcuts h3 {
-  font-family: "M PLUS 1p", "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "Noto Sans JP", "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
   color: white;
   margin-top: 1rem;
   padding-left: 1rem;

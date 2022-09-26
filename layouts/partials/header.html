@@ -11,6 +11,10 @@
 
     {{ if .Params.seachtitle }}
     <title>{{ .Params.seachtitle }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
+    {{ else if .Params.title_suffix }}
+    <title>{{ .Title }}{{ .Params.title_suffix }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
+    {{ else if .Params.title_replace }}
+    <title>{{ .Params.title_replace }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
     {{ else }}
     <title>{{ .Title }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
     {{ end }}
@@ -34,7 +38,7 @@
     <link href="{{(printf "%s" .) | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     {{- end }}
 
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9JKE9WPZS"></script>
     <script>
