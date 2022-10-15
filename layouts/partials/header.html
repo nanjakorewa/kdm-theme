@@ -97,7 +97,7 @@
                   </a>
                   {{ end }}
                   {{ if not .Params.not_use_colab }}
-                  <a href="https://colab.research.google.com/github/nanjakorewa/kdm-notebooks/blob/main/{{ .File.Dir }}/{{ .File.TranslationBaseName }}.ipynb" class="btn colab-btn-border" target="_blank" rel="noopener">
+                  <a href="https://colab.research.google.com/github/nanjakorewa/kdm-notebooks/blob/main/{{ replace .File.Dir "\\" "/" }}{{ .File.TranslationBaseName }}.ipynb" class="btn colab-btn-border" target="_blank" rel="noopener">
                     Colab
                   </a>
                   {{ end }}
