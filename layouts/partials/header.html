@@ -81,10 +81,11 @@
                   {{ if $toc }}
                   <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
                   {{ end }}
-                  <span class="links">
+                  <span class="links" vocab="https://schema.org/" typeof="BreadcrumbList">
                  {{$showBreadcrumb := (and (not .Params.disableBreadcrumb) (not .Site.Params.disableBreadcrumb))}}
                  {{if $showBreadcrumb}}
-                    {{ template "breadcrumb" dict "page" . "value" .Title }}
+                    {{ $dirCount := (add 1 (.File.Path | strings.Count "\\")) }}
+                    {{ template "breadcrumb" dict "page" . "value" .Title "itemCounter" $dirCount}}
                  {{ else }}
                    {{ .Title }}
                  {{ end }}
@@ -125,10 +126,11 @@
           {{end}}
 
         {{define "breadcrumb"}}
+          {{ $countInt := string (int .itemCounter)}}
           {{$parent := .page.Parent }}
           {{ if $parent }}
-            {{ $value := (printf ("<span itemprop='itemListElement'><a href='%s' itemprop='item'><span itemprop='name'>%s</span></a></span> > %s") $parent.RelPermalink $parent.Title .value) }}
-            {{ template "breadcrumb" dict "page" $parent "value" $value }}
+            {{ $value := (printf ("<span property='itemListElement' typeof='ListItem'><a href='%s' property='item' typeof='WebPage'><span>%s</span></a><meta property='position' content='%s'></span> > %s") $parent.RelPermalink $parent.Title $countInt .value) }}
+            {{ template "breadcrumb" dict "page" $parent "value" $value "itemCounter" (add .itemCounter -1)}}
           {{else}}
             {{.value|safeHTML}}
           {{end}}
