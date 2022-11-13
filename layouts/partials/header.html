@@ -38,7 +38,7 @@
     <link href="{{(printf "%s" .) | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     {{- end }}
 
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" media="only screen and (min-width:800px)">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9JKE9WPZS"></script>
     <script>
@@ -72,7 +72,7 @@
               <div>
                 <div id="top-bar">
                 {{$toc := (and (not .Params.disableToc) (not .Params.chapter))}}
-                <div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <div id="breadcrumbs">
                     <span id="sidebar-toggle-span">
                         <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                           <i class="fas fa-bars"></i>
@@ -94,7 +94,7 @@
                 <div id="social-buttons">
                   {{ if not .Params.not_use_twitter }}
                   <a class="btn twitter-btn-border" href="https://twitter.com/intent/tweet?url=https://k-dm.work/{{ .File.Lang }}/{{ replace (lower .File.Dir) "\\" "/" }}{{ lower .File.ContentBaseName }}/&amp;text={{ .Title }}&amp;via=_K_DM" target="blank_" rel="nofollow">
-                    <i class="fab fa-twitter"></i> twitter
+                    <i class="fab fa-twitter"></i> share
                   </a>
                   {{ end }}
                   {{ if not .Params.not_use_colab }}
@@ -129,7 +129,7 @@
           {{ $countInt := string (int .itemCounter)}}
           {{$parent := .page.Parent }}
           {{ if $parent }}
-            {{ $value := (printf ("<span property='itemListElement' typeof='ListItem'><a href='%s' property='item' typeof='WebPage'><span>%s</span></a><meta property='position' content='%s'></span> > %s") $parent.RelPermalink $parent.Title $countInt .value) }}
+            {{ $value := (printf ("<span property='itemListElement' typeof='ListItem'><a href='%s' property='item' typeof='WebPage'><span property='name'>%s</span></a><meta property='position' content='%s'></span> > %s") $parent.RelPermalink $parent.Title $countInt .value) }}
             {{ template "breadcrumb" dict "page" $parent "value" $value "itemCounter" (add .itemCounter -1)}}
           {{else}}
             {{.value|safeHTML}}
