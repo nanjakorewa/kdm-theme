@@ -11,12 +11,15 @@
 
     {{ if .Params.seachtitle }}
     <title>{{ .Params.seachtitle }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
+    {{ else if .Params.title_suffix }}
+    <title>{{ .Title }}{{ .Params.title_suffix }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
+    {{ else if .Params.title_replace }}
+    <title>{{ .Params.title_replace }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
     {{ else }}
     <title>{{ .Title }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
     {{ end }}
 
     {{ $assetBusting := not .Site.Params.disableAssetsBusting }}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"></script>
     <link href="{{"css/nucleus.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     <link href="{{"css/fontawesome-all.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     <link href="{{"css/hybrid.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
@@ -34,7 +37,7 @@
     <link href="{{(printf "%s" .) | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     {{- end }}
 
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" media="only screen and (min-width:800px)">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9JKE9WPZS"></script>
     <script>
@@ -68,7 +71,7 @@
               <div>
                 <div id="top-bar">
                 {{$toc := (and (not .Params.disableToc) (not .Params.chapter))}}
-                <div id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <div id="breadcrumbs">
                     <span id="sidebar-toggle-span">
                         <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
                           <i class="fas fa-bars"></i>
@@ -77,10 +80,11 @@
                   {{ if $toc }}
                   <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
                   {{ end }}
-                  <span class="links">
+                  <span class="links" vocab="https://schema.org/" typeof="BreadcrumbList">
                  {{$showBreadcrumb := (and (not .Params.disableBreadcrumb) (not .Site.Params.disableBreadcrumb))}}
                  {{if $showBreadcrumb}}
-                    {{ template "breadcrumb" dict "page" . "value" .Title }}
+                    {{ $dirCount := (add 1 (.File.Path | strings.Count "\\")) }}
+                    {{ template "breadcrumb" dict "page" . "value" .Title "itemCounter" $dirCount}}
                  {{ else }}
                    {{ .Title }}
                  {{ end }}
@@ -88,12 +92,12 @@
                 </div>
                 <div id="social-buttons">
                   {{ if not .Params.not_use_twitter }}
-                  <a class="btn twitter-btn-border" href="https://twitter.com/intent/tweet?url=https://k-dm.work/{{ .File.Lang }}/{{ lower .File.Dir }}{{ lower .File.ContentBaseName }}/&amp;text={{ .Title }}&amp;via=_K_DM" target="_blank_" rel="nofollow">
-                    <i class="fab fa-twitter"></i> twitter
+                  <a class="btn twitter-btn-border" href="https://twitter.com/intent/tweet?url=https://k-dm.work/{{ .File.Lang }}/{{ replace (lower .File.Dir) "\\" "/" }}{{ lower .File.ContentBaseName }}/&amp;text={{ .Title }}&amp;via=_K_DM" target="blank_" rel="nofollow">
+                    <i class="fab fa-twitter"></i> share
                   </a>
                   {{ end }}
                   {{ if not .Params.not_use_colab }}
-                  <a href="https://colab.research.google.com/github/nanjakorewa/kdm-notebooks/blob/main/{{ .File.Dir }}/{{ .File.TranslationBaseName }}.ipynb" class="btn colab-btn-border" target="_blank" rel="noopener">
+                  <a href="https://colab.research.google.com/github/nanjakorewa/kdm-notebooks/blob/main/{{ replace .File.Dir "\\" "/" }}{{ .File.TranslationBaseName }}.ipynb" class="btn colab-btn-border" target="_blank" rel="noopener">
                     Colab
                   </a>
                   {{ end }}
@@ -121,10 +125,11 @@
           {{end}}
 
         {{define "breadcrumb"}}
+          {{ $countInt := string (int .itemCounter)}}
           {{$parent := .page.Parent }}
           {{ if $parent }}
-            {{ $value := (printf ("<span itemprop='itemListElement'><a href='%s' itemprop='item'><span itemprop='name'>%s</span></a></span> > %s") $parent.RelPermalink $parent.Title .value) }}
-            {{ template "breadcrumb" dict "page" $parent "value" $value }}
+            {{ $value := (printf ("<span property='itemListElement' typeof='ListItem'><a href='%s' property='item' typeof='WebPage'><span property='name'>%s</span></a><meta property='position' content='%s'></span> > %s") $parent.RelPermalink $parent.Title $countInt .value) }}
+            {{ template "breadcrumb" dict "page" $parent "value" $value "itemCounter" (add .itemCounter -1)}}
           {{else}}
             {{.value|safeHTML}}
           {{end}}
