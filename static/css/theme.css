@@ -1628,6 +1628,13 @@ div#social-buttons  a {
   max-width: 90px;
 }
 
+
+@media screen and (max-width:940px) {
+  div#social-buttons {
+    display: none;
+  }
+}
+
 div#page-title-logomark-area {
   margin-bottom: 2em;
 }
