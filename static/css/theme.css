@@ -597,10 +597,26 @@ select[multiple=multiple]:focus {
   font-size: 1.2rem;
 }
 
-#footer {
-  padding: 3rem 1rem;
-  color: #b3b3b3;
-  font-size: 13px;
+@media screen and (min-width: 100px) and (max-width:800px) {
+  #footer {
+    margin-left: 10px;
+    padding: 1rem 1rem;
+    color: #b3b3b3;
+    font-size: 13px;
+    text-align: center;
+    z-index: 10000;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width:17000px) {
+  #footer {
+    margin-left: 270px;
+    padding: 1rem 1rem;
+    color: #b3b3b3;
+    font-size: 13px;
+    text-align: center;
+    z-index: 10000;
+  }
 }
 
 #footer p {
