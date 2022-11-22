@@ -750,7 +750,7 @@ div.notices.ref p {
 }
 
 div.notices.ref p:first-child:after {
-  content: 'Reference / 参考文献';
+  content: 'Reference';
 }
 
 div.notices p:first-child:before {
@@ -769,7 +769,7 @@ div.notices.document ul:first-child:before {
   color: #fff;
   font-family: "Noto Sans JP", "Font Awesome 5 Free";
   font-weight: 600;
-  content: "\f02d  Document / ドキュメント";
+  content: "\f02d  Document";
   left: 10px;
 }
 
@@ -781,7 +781,7 @@ div.notices.document p {
 div.notices.document p:first-child:after {
   font-weight: 600;
   font-family: "Noto Sans JP", "Font Awesome 5 Free";
-  content: 'Document / ドキュメント';
+  content: 'Document';
 }
 
 div.notices.document ul {

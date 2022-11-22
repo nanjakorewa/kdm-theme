@@ -9,8 +9,8 @@
     {{ partial "favicon.html" . }}
     {{ $positionCount := 1 }}
 
-    {{ if .Params.seachtitle }}
-    <title>{{ .Params.seachtitle }}{{ default "" .Site.Params.titleSeparator }}{{ .Site.Title }}</title>
+    {{ if .Params.searchtitle }}
+    <title>{{ .Params.searchtitle }}{{ default "" .Site.Params.titleSeparator }}{{ .Site.Title }}</title>
     {{ else if .Params.title_suffix }}
     <title>{{ .Title }}{{ .Params.title_suffix }}{{ default "" .Site.Params.titleSeparator }}{{ .Site.Title }}</title>
     {{ else if .Params.title_replace }}
