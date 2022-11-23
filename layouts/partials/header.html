@@ -19,6 +19,18 @@
     <title>{{ .Title }}{{ default "" .Site.Params.titleSeparator }}{{ .Site.Title }}</title>
     {{ end }}
 
+    {{ $siteLanguages := .Site.Languages}}
+    {{ $pageLang := .Page.Lang}}
+    {{ if ne $pageLang "ja" }}
+        {{ $translation := .}}
+        {{ range $siteLanguages }}
+          {{ $temp1 := print "/" $pageLang "/" -}}
+          {{ $temp2 := print "/" .Lang "/" -}}
+          <link rel="alternate" hreflang="{{ .Lang }}" href="{{ replace $translation.Permalink $temp1 $temp2}}">
+          {{ if eq .Lang "en" }}<link rel="alternate" hreflang="x-default" href="{{ replace $translation.Permalink $temp1 $temp2}}">{{ end -}}
+          {{ end }}
+    {{ end }}
+
     {{ $assetBusting := not .Site.Params.disableAssetsBusting }}
     <link href="{{"css/nucleus.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
     <link href="{{"css/fontawesome-all.min.css" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" rel="stylesheet">
