@@ -10,13 +10,13 @@
     {{ $positionCount := 1 }}
 
     {{ if .Params.searchtitle }}
-    <title>{{ .Params.searchtitle }}{{ default "" .Site.Params.titleSeparator }}{{ .Site.Title }}</title>
+    <title>{{ .Params.searchtitle }}{{ default "" .Site.Params.titleSeparator }}</title>
     {{ else if .Params.title_suffix }}
-    <title>{{ .Title }}{{ .Params.title_suffix }}{{ default "" .Site.Params.titleSeparator }}{{ .Site.Title }}</title>
+    <title>{{ .Title }}{{ .Params.title_suffix }}{{ default "" .Site.Params.titleSeparator }}</title>
     {{ else if .Params.title_replace }}
-    <title>{{ .Params.title_replace }}{{ default "" .Site.Params.titleSeparator }}{{ .Site.Title }}</title>
+    <title>{{ .Params.title_replace }}{{ default "" .Site.Params.titleSeparator }}</title>
     {{ else }}
-    <title>{{ .Title }}{{ default "" .Site.Params.titleSeparator }}{{ .Site.Title }}</title>
+    <title>{{ .Title }}{{ default "" .Site.Params.titleSeparator }}</title>
     {{ end }}
 
     {{ $siteLanguages := .Site.Languages}}
