@@ -138,8 +138,13 @@
           {{ $countInt := string (int .itemCounter)}}
           {{$parent := .page.Parent }}
           {{ if $parent }}
+            {{ if $parent.Title }}
             {{ $value := (printf ("<span property='itemListElement' typeof='ListItem'><a href='%s' property='item' typeof='WebPage'><span property='name'>%s</span></a><meta property='position' content='%s'></span> > %s") $parent.RelPermalink $parent.Title $countInt .value) }}
             {{ template "breadcrumb" dict "page" $parent "value" $value "itemCounter" (add .itemCounter -1)}}
+            {{ else }}
+            {{ $value := (printf ("<span property='itemListElement' typeof='ListItem'><a href='%s' property='item' typeof='WebPage'><span property='name'>%s</span></a><meta property='position' content='%s'></span> > %s") $parent.RelPermalink "top page" $countInt .value) }}
+            {{ template "breadcrumb" dict "page" $parent "value" $value "itemCounter" (add .itemCounter -1)}}
+            {{ end }}
           {{else}}
             {{.value|safeHTML}}
           {{end}}
