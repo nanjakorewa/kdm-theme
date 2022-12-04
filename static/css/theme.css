@@ -511,13 +511,9 @@ select[multiple=multiple]:focus {
   #body #navigation {
     position: static;
     margin-right: 0 !important;
-    width: 100%;
+    width: 80%;
     display: table;
   }
-}
-
-pre.comment {
-  color: #000 !important;
 }
 
 textarea#urlComment {
@@ -529,7 +525,7 @@ textarea#urlComment {
     position: static;
     margin-right: 0 !important;
     padding: 4em;
-    width: 100%;
+    width: 90%;
     display: table;
   }
 }
@@ -539,7 +535,7 @@ textarea#urlComment {
     position: static;
     margin-right: 0 !important;
     padding: 4em;
-    width: 100%;
+    width: 90%;
     display: table;
   }
 }
@@ -554,9 +550,21 @@ div#comment-area-ertj2jj{
   margin: 1em 2em 1em 0em;
 }
 
-div.cmt {
-  margin-top: 1em ;
+
+@media only all and (max-width: 59.938em) {
+  div.cmt {
+    margin-top: 1em;
+    width: 100%;
+  }
 }
+
+@media only all and (max-width: 200em) {
+  div.cmt {
+    margin-top: 1em;
+    width: 100%;
+  }
+}
+
 
 div.cmt-header {
   background-color: #eee;
@@ -565,6 +573,12 @@ div.cmt-header {
 
 div.cmt-text {
   margin-left: 1em;
+}
+
+div.cmt-text pre.comment {
+  color: #155 !important;
+  word-wrap: break-all !important;
+  white-space: pre-wrap !important;
 }
 
 #body .nav {
