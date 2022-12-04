@@ -49,6 +49,8 @@
 		{{end}}
 	{{end}}
     </div>
+
+    {{if not .Params.chapter}}
     <div id="disqus-wid">
       <h4>{{ .Site.Params.CommentTitle }}</h4>
       <form action="https://docs.google.com/forms/d/e/1FAIpQLSdsqojf86auy1ExzNh_GAZ-3TBcAFz7r4vJhL0dg8yvQbdrng/formResponse" target="hidden_iframe" method="post" id="comment-d3-form">
@@ -119,6 +121,7 @@
           </script>
         </div>
     </div>
+    {{ end }}
 
     </section>
 
