@@ -544,6 +544,29 @@ textarea#urlComment {
   }
 }
 
+p#comment-notice {
+  margin: 0;
+  font-size: 0.8em;
+  color:rgba(0, 0, 0, .7);
+}
+
+div#comment-area-ertj2jj{
+  margin: 1em 2em 1em 0em;
+}
+
+div.cmt {
+  margin-top: 1em ;
+}
+
+div.cmt-header {
+  background-color: #eee;
+  font-size: 0.8em;
+}
+
+div.cmt-text {
+  margin-left: 1em;
+}
+
 #body .nav {
   position: fixed;
   top: 0;

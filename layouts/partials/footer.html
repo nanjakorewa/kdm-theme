@@ -50,49 +50,41 @@
 	{{end}}
     </div>
     <div id="disqus-wid">
-      <script src="https://www.google.com/recaptcha/api.js?render=6Ld06FMjAAAAAK6lrZ9zo1EgJ8X5cphZkZl_04Ax"></script>
-      <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-        <div id="comments"></div>
-        <script defer>
-        d3.csv("https://docs.google.com/spreadsheets/d/1vmmRbGTEKaP09rrExKbLFXBnlhdWZHQmsLAz5wxnw-E/export?format=csv&range=A3:F", function(error, data){
-          var text = "";
-          for(var i=0; i<data.length; i++){
-            if (data[i].BaseUrl == '{{ replace .Permalink "/" "##" }}' && data[i].Accepted == "y") {
-              text += i+1 + " 名前: " + data[i].Name + " " + data[i].Timestamp + "<pre class='comment'>" + data[i].Comments + "</pre>";
-            }
-          }
-          d3.select("#comments").html(text);
-        });
-      </script>
-
-      <form action="https://docs.google.com/forms/d/e/1FAIpQLSdsqojf86auy1ExzNh_GAZ-3TBcAFz7r4vJhL0dg8yvQbdrng/formResponse" target="hidden_iframe" method="post" onsubmit="return checkWrKEOAPDSSSDKVV(this.commentTextArea.value)">
+      <h4>コメント欄</h4>
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSdsqojf86auy1ExzNh_GAZ-3TBcAFz7r4vJhL0dg8yvQbdrng/formResponse" target="hidden_iframe" method="post" id="comment-d3-form">
         <p><input name="entry.1708308159" placeholder="Name" value="Anonymous" required></p>
         <p><input name="entry.1734748431" placeholder="Mail address" type="email"></p>
         <p><textarea name="entry.1370807675" placeholder="comment" rows="3" cols="40" maxlength="400" id="commentTextArea" required></textarea></p>
         <p><textarea id="urlComment" name="entry.357172988" placeholder="PageUrl" rows="1" cols="200" maxlength="400" id="commentTextArea" required>{{ replace .Permalink "/" "##" }}</textarea></p>
         <input type="submit" id="submitbutton" value="送信">
+        <p id="comment-notice">※コメントは承認後に表示されます</p>
+        <p id="comment-complete-msg"></p>
         </form>
         <iframe onload='if(typeof submitted != "undefined" && submitted){window.location="";}' id=hidden_iframe name=hidden_iframe style=display:none></iframe>
 
         <script type="text/javascript">
-
-        document.getElementById("submitbutton").addEventListener('submit', onSubmit);
-
+        document.getElementById("comment-d3-form").addEventListener('submit', onSubmit);
         function onSubmit(e)
         {
                 e.preventDefault();
+                checkWrKEOAPDSSSDKVV();
                 grecaptcha.ready(function()
                 {
+                  try {
                         grecaptcha.execute('6Ld06FMjAAAAAK6lrZ9zo1EgJ8X5cphZkZl_04Ax', {action: 'submit'}).then(function(token)
                         {
                                 var recaptchaToken = document.getElementById('recaptchaToken');
                                 recaptchaToken.value = token;
-                                document.getElementById("submitbutton").submit();
+                                document.getElementById("comment-d3-form").submit();
                         });
+                  } catch (err) {
+                    console.error(err);
+                  }
+                  document.getElementById("comment-complete-msg").textContent = "コメントが送信されました！";
                 });
         }
 
-        function checkWrKEOAPDSSSDKVV(commentTextArea) {
+        function checkWrKEOAPDSSSDKVV() {
           document.getElementById("submitbutton").disabled = true;
           textareas = document.getElementsByTagName('textarea');
           for(var i=0 ;i < textareas.length ;i ++ ){
@@ -105,6 +97,26 @@
           return submitted=!0;
         }
         </script>
+
+        <div id="comment-area-ertj2jj">
+          <script src="https://www.google.com/recaptcha/api.js?render=6Ld06FMjAAAAAK6lrZ9zo1EgJ8X5cphZkZl_04Ax"></script>
+          <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+            <div id="comments-d3"></div>
+            <script defer>
+            d3.csv("https://docs.google.com/spreadsheets/d/1vmmRbGTEKaP09rrExKbLFXBnlhdWZHQmsLAz5wxnw-E/export?format=csv&range=A3:F", function(error, data){
+              var text = "";
+              for(var i=0; i<data.length; i++){
+                if (data[i].BaseUrl == '{{ replace .Permalink "/" "##" }}' && data[i].Accepted == "y") {
+                  text += "<div class='cmt'>"
+                  text += "  <div class='cmt-header'>名前:" + data[i].Name + " (" + data[i].Timestamp + ")</div>";
+                  text += "  <div class='cmt-text'><pre class='comment'>" + data[i].Comments + "</pre></div>";
+                  text += "</div>"
+                }
+              }
+              d3.select("#comments-d3").html(text);
+            });
+          </script>
+        </div>
     </div>
 
     </section>
