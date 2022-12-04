@@ -516,6 +516,26 @@ select[multiple=multiple]:focus {
   }
 }
 
+@media only all and (max-width: 59.938em) {
+  #body #disqus-wid {
+    position: static;
+    margin-right: 0 !important;
+    padding: 4em;
+    width: 100%;
+    display: table;
+  }
+}
+
+@media only all and (max-width: 100em) {
+  #body #disqus-wid {
+    position: static;
+    margin-right: 0 !important;
+    padding: 4em;
+    width: 100%;
+    display: table;
+  }
+}
+
 #body .nav {
   position: fixed;
   top: 0;
