@@ -516,6 +516,14 @@ select[multiple=multiple]:focus {
   }
 }
 
+pre.comment {
+  color: #000 !important;
+}
+
+textarea#urlComment {
+  display: none !important;
+}
+
 @media only all and (max-width: 59.938em) {
   #body #disqus-wid {
     position: static;
@@ -526,7 +534,7 @@ select[multiple=multiple]:focus {
   }
 }
 
-@media only all and (max-width: 100em) {
+@media only all and (max-width: 200em) {
   #body #disqus-wid {
     position: static;
     margin-right: 0 !important;

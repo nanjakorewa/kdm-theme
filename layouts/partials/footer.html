@@ -50,25 +50,61 @@
 	{{end}}
     </div>
     <div id="disqus-wid">
-      <div id="disqus_thread"></div>
-        <script>
-            /**
-            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-            /*
-            var disqus_config = function () {
-            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            */
-            (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://k-dm.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
+      <script src="https://www.google.com/recaptcha/api.js?render=6Ld06FMjAAAAAK6lrZ9zo1EgJ8X5cphZkZl_04Ax"></script>
+      <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <div id="comments"></div>
+        <script defer>
+        d3.csv("https://docs.google.com/spreadsheets/d/1vmmRbGTEKaP09rrExKbLFXBnlhdWZHQmsLAz5wxnw-E/export?format=csv&range=A3:F", function(error, data){
+          var text = "";
+          for(var i=0; i<data.length; i++){
+            if (data[i].BaseUrl == '{{ replace .Permalink "/" "##" }}' && data[i].Accepted == "y") {
+              text += i+1 + " 名前: " + data[i].Name + " " + data[i].Timestamp + "<pre class='comment'>" + data[i].Comments + "</pre>";
+            }
+          }
+          d3.select("#comments").html(text);
+        });
+      </script>
+
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSdsqojf86auy1ExzNh_GAZ-3TBcAFz7r4vJhL0dg8yvQbdrng/formResponse" target="hidden_iframe" method="post" onsubmit="return checkWrKEOAPDSSSDKVV(this.commentTextArea.value)">
+        <p><input name="entry.1708308159" placeholder="Name" value="Anonymous" required></p>
+        <p><input name="entry.1734748431" placeholder="Mail address" type="email"></p>
+        <p><textarea name="entry.1370807675" placeholder="comment" rows="3" cols="40" maxlength="400" id="commentTextArea" required></textarea></p>
+        <p><textarea id="urlComment" name="entry.357172988" placeholder="PageUrl" rows="1" cols="200" maxlength="400" id="commentTextArea" required>{{ replace .Permalink "/" "##" }}</textarea></p>
+        <input type="submit" id="submitbutton" value="送信">
+        </form>
+        <iframe onload='if(typeof submitted != "undefined" && submitted){window.location="";}' id=hidden_iframe name=hidden_iframe style=display:none></iframe>
+
+        <script type="text/javascript">
+
+        document.getElementById("submitbutton").addEventListener('submit', onSubmit);
+
+        function onSubmit(e)
+        {
+                e.preventDefault();
+                grecaptcha.ready(function()
+                {
+                        grecaptcha.execute('6Ld06FMjAAAAAK6lrZ9zo1EgJ8X5cphZkZl_04Ax', {action: 'submit'}).then(function(token)
+                        {
+                                var recaptchaToken = document.getElementById('recaptchaToken');
+                                recaptchaToken.value = token;
+                                document.getElementById("submitbutton").submit();
+                        });
+                });
+        }
+
+        function checkWrKEOAPDSSSDKVV(commentTextArea) {
+          document.getElementById("submitbutton").disabled = true;
+          textareas = document.getElementsByTagName('textarea');
+          for(var i=0 ;i < textareas.length ;i ++ ){
+            textareas[i].value = textareas[i].value.replace( /</g ,'&lt;' );
+          }
+          inputs = document.getElementsByTagName('input');
+          for(var i=0 ;i < inputs.length ;i ++ ){
+            inputs[i].value = inputs[i].value.replace( /</g ,'&lt;' );
+          }
+          return submitted=!0;
+        }
         </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
     </section>
@@ -123,7 +159,7 @@
             <script defer src="{{"mermaid/mermaid.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
         {{ end }}
         <script>
-            mermaid.initialize({ startOnLoad: true });
+            //mermaid.initialize({ startOnLoad: true });
         </script>
     {{ end }}
     {{ partial "custom-footer.html" . }}
