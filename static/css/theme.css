@@ -1729,7 +1729,7 @@ a.colab-btn-border {
   margin-top: 0.5em 0 0 0.5em !important;
   border: 2px solid #000;
   border-radius: 0;
-  background: #fec966;
+  background: #FFA500;
   color: #fff;
 }
 
@@ -1749,7 +1749,7 @@ a.twitter-btn-border {
   margin-top: 0.5em 0 0 0.5em !important;
   border: 2px solid #000;
   border-radius: 0;
-  background: #7bbee8;
+  background: #1DA1F2;
   color: #fff;
 }
 
