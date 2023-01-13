@@ -89,7 +89,7 @@
         <div class="padding highlightable">
               {{if not .IsHome}}
               <div>
-                <div id="top-bar">
+                <div id="top-bar" {{ if .Params.not_display_topbar }}style="display: none;"{{ end }}>
                 {{$toc := (and (not .Params.disableToc) (not .Params.chapter))}}
                 <div id="breadcrumbs">
                     <span id="sidebar-toggle-span">
