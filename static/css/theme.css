@@ -3,6 +3,17 @@
 /* Tags */
 @import "tags.css";
 
+div#artlink {
+  margin: 1em 0 1em 0;
+  filter: grayscale(100%);
+  transition: all 0.3s ease-out;
+}
+
+div#artlink:hover {
+  margin: 1em 0 1em 0;
+  filter: grayscale(0%);
+}
+
 #top-github-link,
 #body #breadcrumbs {
   position: relative;
@@ -543,10 +554,10 @@ textarea#urlComment {
 p#comment-notice {
   margin: 0;
   font-size: 0.8em;
-  color:rgba(0, 0, 0, .7);
+  color: rgba(0, 0, 0, .7);
 }
 
-div#comment-area-ertj2jj{
+div#comment-area-ertj2jj {
   margin: 1em 2em 1em 0em;
 }
 
@@ -1037,19 +1048,19 @@ hr {
   margin-top: -40px;
 }
 
-#body-inner h1{
+#body-inner h1 {
   font-size: 2.4em;
 }
 
-#body-inner h2[id]{
+#body-inner h2[id] {
   font-size: 2em;
 }
 
-#body-inner h3[id]{
+#body-inner h3[id] {
   font-size: 1.5em;
 }
 
-#body-inner h4[id]{
+#body-inner h4[id] {
   font-size: 1.2em;
 }
 
@@ -1703,7 +1714,7 @@ div#social-buttons {
   margin-left: auto;
 }
 
-div#social-buttons  a {
+div#social-buttons a {
   margin-top: 0.6em;
   font-size: 0.8em !important;
   max-width: 90px;
@@ -1814,3 +1825,70 @@ div.google-sp-area {
   justify-content: center
 }
 
+/* GPT */
+div.toc-gpt a {
+  color: #000;
+}
+
+pre.input {
+  margin: 0;
+}
+
+pre.input:before {
+  font-family: "Noto Sans JP", "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f075  GPTに送るメッセージ";
+  color: #000;
+}
+
+pre.input code, pre.output code {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+code.no-hlt p {
+  margin: 0 !important;
+  padding-bottom: 0;
+}
+
+pre.input code.no-hlt span, pre.output code.no-hlt span {
+  color: #abb2bf !important;
+}
+
+pre.output:before {
+  font-family: "Noto Sans JP", "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f4ad  ChatGPTの回答";
+  color: #000;
+}
+
+.image-hover-textarea {
+	width:			100%;
+	height:			188px;
+	overflow:		hidden;
+	margin:		20px 0 0 0;
+  padding: 0;
+	position:		relative;
+}
+
+.image-hover-textarea .caption {
+	font-size:		130%;
+	text-align: 		center;
+	padding-top:		60px;
+  font-weight: bold;
+	color:			#000;
+}
+
+.image-hover-textarea .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;	/* 絶対位置指定 */
+	top:			0;
+	left:			0;
+	opacity:		0;	/* マスクを表示しない */
+	-webkit-transition:	all 0.2s ease;
+	transition:		all 0.2s ease;
+}
+.image-hover-textarea:hover .mask {
+	opacity:		1;	/* マスクを表示する */
+}

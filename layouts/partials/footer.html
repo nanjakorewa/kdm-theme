@@ -58,7 +58,7 @@
         <p><input name="entry.1708308159" placeholder="Name" value="{{ .Site.Params.CommentDefaultName }}" required></p>
         <p><input name="entry.1734748431" placeholder="{{ .Site.Params.CommentMailPlaceholder }}" type="email" style="display: none;"></p>
         <p><textarea name="entry.1370807675" placeholder="{{ .Site.Params.CommentTextareaPlaceholder }}" rows="3" cols="40" maxlength="400" id="commentTextArea" required></textarea></p>
-        <p><textarea id="urlComment" name="entry.357172988" placeholder="PageUrl" rows="1" cols="200" maxlength="400" id="commentTextArea" required>{{ replace .Permalink "/" "##" }}</textarea></p>
+        <p><textarea id="urlComment" name="entry.357172988" placeholder="PageUrl" rows="1" cols="200" maxlength="400" id="commentTextArea2" required>{{ replace .Permalink "/" "##" }}</textarea></p>
         <input type="submit" id="submitbutton" value="{{ .Site.Params.CommentSubmitButtonName }}">
         <p id="comment-notice">{{ .Site.Params.NoteApprovedComment }}</p>
         <p id="comment-complete-msg"></p>
@@ -177,6 +177,19 @@
         <script>
             //mermaid.initialize({ startOnLoad: true });
         </script>
+    {{ end }}
+
+    {{ if .Params.use_gpt }}
+      <script defer>
+        console.log("aaa");
+        window.onload = function() {
+          var elements = document.getElementsByClassName('no-hlt');
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.add('coffeescript');
+            elements[i].classList.remove('sql');
+          }
+        }
+      </script>
     {{ end }}
     {{ partial "custom-footer.html" . }}
   </body>

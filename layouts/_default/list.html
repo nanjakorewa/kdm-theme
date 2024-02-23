@@ -1,5 +1,11 @@
 {{ partial "header.html" . }}
 
+{{ if .Params.use_gpt }}
+<div class="toc-gpt">
+  {{ .TableOfContents }}
+</div>
+{{ end }}
+
 {{ if eq .Kind "section" }}
 	{{ .Content }}
 {{end}}

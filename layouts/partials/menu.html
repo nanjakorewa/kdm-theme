@@ -49,8 +49,25 @@
     {{end}}
 
     {{ if or .Site.IsMultiLingual $showvisitedlinks }}
+    <!--
     <section id="prefooter">
-      <hr/>
+      {{ if (eq "ja" .Page.Lang)}}
+        <div class="image-hover-textarea">
+          <a href="https://geopinning.space/rule/">
+          <img src='{{"geoguess.png" | relURL}}' loading="lazy">
+          <div class="mask">
+            <div class="caption">Geoguessrのめも</div>
+          </div>
+        </a>
+        </div>
+      {{ else }}
+      <div id="artlink">
+        <a href="https://www.pixiv.net/users/3087729">
+          <img src='{{"deviant.jpg" | relURL}}' loading="lazy">
+        </a>
+      </div>
+      {{ end }}
+      -->
       <ul>
       {{ if and .Site.IsMultiLingual (not .Site.Params.DisableLanguageSwitchingButton)}}
         <li>
